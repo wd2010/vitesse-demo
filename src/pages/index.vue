@@ -13,6 +13,8 @@ function go() {
 
 const { t } = useI18n()
 
+const promptEvent = ref(null)
+
 // 注册 Service Worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
@@ -24,31 +26,28 @@ if ('serviceWorker' in navigator) {
     })
 }
 
+function showInstallPromotion() {
+  // 显示自定义的添加到主屏幕提示
+  // 例如，可以使用一个模态框来提示用户
+  // ...
+  // 然后，如果用户选择添加到主屏幕
+  promptEvent.value.prompt()
+  // 等待用户响应
+  promptEvent.value.userChoice.then((choiceResult) => {
+    if (choiceResult.outcome === 'accepted') {
+      console.log('用户已接受添加到主屏幕')
+    }
+    else {
+      console.log('用户已拒绝添加到主屏幕')
+    }
+  })
+}
+
 // 监听 beforeinstallprompt 事件
 window.addEventListener('beforeinstallprompt', (event) => {
   event.preventDefault()
   // 存储事件，以便可以稍后显示提示
-  const promptEvent = event
-  const showInstallPromotion = () => {
-    // 显示自定义的添加到主屏幕提示
-    // 例如，可以使用一个模态框来提示用户
-    // ...
-    // 然后，如果用户选择添加到主屏幕
-    promptEvent.prompt()
-    // 等待用户响应
-    promptEvent.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('用户已接受添加到主屏幕')
-      }
-      else {
-        console.log('用户已拒绝添加到主屏幕')
-      }
-    })
-  }
-
-  // 你可以在合适的时机调用 showInstallPromotion 来显示提示
-  // 例如，当用户与页面交互一定次数后
-  showInstallPromotion()
+  promptEvent.value = event
 })
 </script>
 
@@ -80,7 +79,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
       <button
         m-3 text-sm btn
         :disabled="!name"
-        @click="go"
+        @click="showInstallPromotion"
       >
         {{ t('button.go') }}
       </button>
