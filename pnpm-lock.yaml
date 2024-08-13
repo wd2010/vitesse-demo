@@ -23,6 +23,9 @@ importers:
       '@vueuse/head':
         specifier: ^2.0.0
         version: 2.0.0(vue@3.4.35(typescript@5.5.4))
+      eruda:
+        specifier: ^3.2.3
+        version: 3.2.3
       nprogress:
         specifier: ^0.2.0
         version: 0.2.0
@@ -2594,6 +2597,9 @@ packages:
 
   error-stack-parser-es@0.1.5:
     resolution: {integrity: sha512-xHku1X40RO+fO8yJ8Wh2f2rZWVjqyhb1zgq1yZ8aZRQkv6OOKhKWRUaht3eSCUbAOBaKIgM+ykwFLE+QUxgGeg==}
+
+  eruda@3.2.3:
+    resolution: {integrity: sha512-304e6QPmPGoFHh+nI0BJHBuGJFCh+VoRvpaFg4FIQA1+JS+DpjWCylLdbXp1O73735+47Wuls7+qUmB3khelmg==}
 
   es-abstract@1.22.2:
     resolution: {integrity: sha512-YoxfFcDmhjOgWPWsV13+2RNjq1F6UQnfs+8TftwNqtzlmFzEXvlUwdrNrYeaizfjQzRMxkZ6ElWMOJIFKdVqwA==}
@@ -8475,6 +8481,8 @@ snapshots:
       is-arrayish: 0.2.1
 
   error-stack-parser-es@0.1.5: {}
+
+  eruda@3.2.3: {}
 
   es-abstract@1.22.2:
     dependencies:

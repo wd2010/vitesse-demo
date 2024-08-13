@@ -18,10 +18,10 @@
     </script>
 
     <script>
-
       // 注册 Service Worker
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
+        navigator.serviceWorker
+          .register('/sw.js')
           .then((registration) => {
             console.log('Service Worker 注册成功:', registration)
           })
@@ -41,6 +41,11 @@
   <body class="font-sans">
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+
+    <script src="node_modules/eruda/eruda.js"></script>
+    <script>
+      eruda.init()
+    </script>
     <noscript>
       This website requires JavaScript to function properly. Please enable
       JavaScript to continue.
