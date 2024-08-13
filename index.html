@@ -16,6 +16,27 @@
           document.documentElement.classList.toggle('dark', true)
       })()
     </script>
+
+    <script>
+
+      // 注册 Service Worker
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('Service Worker 注册成功:', registration)
+          })
+          .catch((error) => {
+            console.error('Service Worker 注册失败:', error)
+          })
+      }
+
+      // 监听 beforeinstallprompt 事件
+      window.addEventListener('beforeinstallprompt', (event) => {
+        event.preventDefault()
+        // 存储事件，以便可以稍后显示提示
+        window.promptEvent = event
+      })
+    </script>
   </head>
   <body class="font-sans">
     <div id="app"></div>
