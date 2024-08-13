@@ -26,7 +26,14 @@ export default defineConfig({
   },
 
   plugins: [
-
+    // basicSsl({
+    //   /** name of certification */
+    //   name: 'test',
+    //   /** custom trust domains */
+    //   domains: ['*.custom.com'],
+    //   /** custom certification directory */
+    //   certDir: '/Users/wendan/.devServer/cert',
+    // }),
     VueMacros({
       plugins: {
         vue: Vue({

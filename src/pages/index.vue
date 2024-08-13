@@ -15,7 +15,7 @@ const { t } = useI18n()
 
 // 注册 Service Worker
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
+  navigator.serviceWorker.register('/sw.js')
     .then((registration) => {
       console.log('Service Worker 注册成功:', registration)
     })
